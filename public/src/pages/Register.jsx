@@ -125,8 +125,7 @@ const FormContainer = styled.div`
       text-transform: uppercase;
       a {
         color: #38ff42;
-        text-transform: none;
-        // text-decoration: none;
+        text-decoration: none;
         font-weight: 700;
       }
     }
