@@ -66,6 +66,7 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  align-items: center;
   background-color: #0e1419;
 
   .brand {
@@ -100,6 +101,33 @@ const FormContainer = styled.div`
       &:focus {
         border: 0.1rem solid #38ff42;
         outline: none;
+      }
+    }
+
+    button {
+      background-color: #00fdea;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      color: #000;
+      border: none;
+      font-weight: 700;
+      border-radius: 0.4rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background-color: #38ff42;
+      }
+    }
+
+    span {
+      color: white;
+      text-transform: uppercase;
+      a {
+        color: #38ff42;
+        text-transform: none;
+        // text-decoration: none;
+        font-weight: 700;
       }
     }
   }
