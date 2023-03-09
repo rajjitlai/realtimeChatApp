@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../assets/rj.ico"; // change the logo after the development
 
 function Register() {
   const handleSubmit = (event) => {
@@ -14,7 +16,7 @@ function Register() {
       <FormContainer>
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
-            <img src="" alt="" />
+            <img src={Logo} alt="logo" />
             <h1>waathiapp</h1>
           </div>
           <label htmlFor="username">Username</label>
@@ -48,8 +50,8 @@ function Register() {
 
           <button type="submit">Create Account</button>
           <span>
-            Already have an account? 
-            {/* <Link to="/login">Login</Link> */}
+            Already have an account? &nbsp;
+            <Link to="/Login">Login</Link>
           </span>
         </form>
       </FormContainer>
@@ -57,6 +59,24 @@ function Register() {
   );
 }
 
-const FormContainer = styled.div``;
+const FormContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #0e1419;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    img {
+      height: 5rem;
+    }
+  }
+`;
 
 export default Register;
