@@ -19,28 +19,28 @@ function Register() {
             <img src={Logo} alt="logo" />
             <h1>waathiapp</h1>
           </div>
-          <label htmlFor="username">Username</label>
+          {/* <label htmlFor="username">Username</label> */}
           <input
             type="text"
             placeholder="Username"
             name="username"
             onChange={(e) => handleChange(e)}
           />
-          <label htmlFor="email">Email</label>
+          {/* <label htmlFor="email">Email</label> */}
           <input
             type="email"
             placeholder="Email"
             name="email"
             onChange={(e) => handleChange(e)}
           />
-          <label htmlFor="password">Password</label>
+          {/* <label htmlFor="password">Password</label> */}
           <input
             type="password"
             placeholder="Password"
             name="password"
             onChange={(e) => handleChange(e)}
           />
-          <label htmlFor="password">Confirm Password</label>
+          {/* <label htmlFor="password">Confirm Password</label> */}
           <input
             type="password"
             placeholder="Confirm Password"
@@ -75,6 +75,32 @@ const FormContainer = styled.div`
     justify-content: center;
     img {
       height: 5rem;
+    }
+    h1 {
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgb(36 32 40 / 46%);
+    border-radius: 2rem;
+    padding: 3rem 5rem;
+
+    input {
+      background-color: transparent;
+      padding: 1rem;
+      border: 0.1rem solid #00fdea;
+      border-radius: 0.4rem;
+      color: #fff;
+      font-size: 1rem;
+      &:focus {
+        border: 0.1rem solid #38ff42;
+        outline: none;
+      }
     }
   }
 `;
