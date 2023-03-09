@@ -1,6 +1,6 @@
 import React from "react";
 
-function CHat() {
+function Chat() {
   return <div>Chat</div>;
 }
 
