@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import Logo from "../assets/rj.ico"; // change the logo after the development
+import { registerRoute } from "../utils/APIRoutes";
 
 function Register() {
   const [values, setValues] = useState({
@@ -13,10 +15,17 @@ function Register() {
     confirmPassword: "",
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // alert("form");
-    handleValidation();
+    if (handleValidation()) {
+      const { password, confirmPassword, username, email } = values;
+      const { data } = await axios.post(registerRoute, {
+        username,
+        email,
+        password,
+      });
+    }
   };
 
   const toastOptions = {
@@ -89,7 +98,7 @@ function Register() {
           <button type="submit">Create Account</button>
           <span>
             Already have an account? &nbsp;
-            <Link to="/Login">Login</Link>
+            <Link to="/login">Login</Link>
           </span>
         </form>
       </FormContainer>
