@@ -19,6 +19,7 @@ function Register() {
     event.preventDefault();
     // alert("form");
     if (handleValidation()) {
+      console.log("in validation", registerRoute);
       const { password, confirmPassword, username, email } = values;
       const { data } = await axios.post(registerRoute, {
         username,
@@ -38,7 +39,7 @@ function Register() {
 
   const handleValidation = () => {
     const { password, confirmPassword, username, email } = values;
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       toast.error("Password and Confirm Password should be same", toastOptions);
       return false;
     } else if (password.length < 8) {
