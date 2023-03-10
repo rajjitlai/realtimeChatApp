@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../assets/rj.ico"; // change the logo after the development
 
 function Register() {
@@ -13,14 +15,34 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("form");
+    // alert("form");
+    handleValidation();
   };
 
-  const handleValidation = ()=> {
-    const {password, confirmPassword, username, email} = values;
-    if(password == confirmPassword){
-      
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+
+  const handleValidation = () => {
+    const { password, confirmPassword, username, email } = values;
+    if (password != confirmPassword) {
+      toast.error("Password and Confirm Password should be same", toastOptions);
+      return false;
+    } else if (password.length < 8) {
+      toast.error("Password must be atleast 8 characters long", toastOptions);
+      return false;
+    } else if (username === "") {
+      toast.error("Username cannot be blank", toastOptions);
+    } else if (username.length < 3) {
+      toast.error("Username must be atleast 4 characters long", toastOptions);
+    } else if (email === "") {
+      toast.error("Email is required", toastOptions);
     }
+    return true;
   };
 
   const handleChange = (event) => {
@@ -71,6 +93,7 @@ function Register() {
           </span>
         </form>
       </FormContainer>
+      <ToastContainer />
     </>
   );
 }
