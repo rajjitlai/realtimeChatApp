@@ -47,8 +47,6 @@ function Login() {
     if (password === "") {
       toast.error("Password is required", toastOptions);
       return false;
-    } else if (username === "") {
-      toast.error("Username cannot be blank", toastOptions);
     } else if (username.length === "") {
       toast.error("Email and Password required", toastOptions);
       return false;
