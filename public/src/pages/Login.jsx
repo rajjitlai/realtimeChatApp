@@ -18,7 +18,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (handleValidation()) {
-      const { password, username } = values;
+      const { username, password } = values;
       const { data } = await axios.post(loginRoute, {
         username,
         password,
@@ -28,9 +28,9 @@ function Login() {
       }
       if (data.status === true) {
         localStorage.setItem("chat-app-user", JSON.stringify(data.user));
+        // useNavigate
+        navigate("/");
       }
-      // useNavigate
-      navigate("/");
     }
   };
 
@@ -48,7 +48,7 @@ function Login() {
       toast.error("Password is required", toastOptions);
       return false;
     } else if (username.length === "") {
-      toast.error("Email and Password required", toastOptions);
+      toast.error("Username and Password required", toastOptions);
       return false;
     }
     return true;
