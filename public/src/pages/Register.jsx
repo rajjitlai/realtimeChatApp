@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/rj.ico"; // change the logo after the development
 
 function Register() {
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("form");
   };
 
-  const handleChange = (event) => {};
+  const handleValidation = ()=> {
+    const {password, confirmPassword, username, email} = values;
+    if(password == confirmPassword){
+      
+    }
+  };
+
+  const handleChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
 
   return (
     <>
