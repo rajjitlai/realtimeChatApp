@@ -47,8 +47,11 @@ function Login() {
     if (password === "") {
       toast.error("Password is required", toastOptions);
       return false;
-    } else if (username.length === "") {
-      toast.error("Username and Password required", toastOptions);
+      // } else if (username.length < 3) {
+      //   toast.error("Username and Password required", toastOptions);
+      //   return false;
+    } else if (username === "") {
+      toast.error("Username is required", toastOptions);
       return false;
     }
     return true;
