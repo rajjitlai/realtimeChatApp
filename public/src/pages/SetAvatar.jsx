@@ -7,9 +7,17 @@ import axios from "axios";
 import loader from "../assets/rj.ico"; // change the loader after the development
 import { setAvatarRoute } from "../utils/APIRoutes";
 
-function SetAvatar(){
+export default function SetAvatar() {
+  const api =
+    "https://api.multiavatar.com/Starcrasher.png?apikey=YOUR_API_KEYYWE6ILg09AMzCF";
+  const naviagate = useNavigate();
 
+  return (
+    <>
+      <Container></Container>;
+      <ToastContainer />
+    </>
+  );
 }
 
-
-export default SetAvatar;
+const Container = styled.div``;
