@@ -6,13 +6,15 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import loader from "../assets/rj.ico"; // change the loader after the development
 import { setAvatarRoute } from "../utils/APIRoutes";
+import { Buffer } from "buffer";
 
 export default function SetAvatar() {
+  //   const api = "https://api.multiavatar.com/45678945";
   const api =
-    "https://api.multiavatar.com/Starcrasher.png?apikey=YOUR_API_KEYYWE6ILg09AMzCF";
+    "https://api.multiavatar.com/Starcrasher.png?apikey=YWE6ILg09AMzCF";
   const naviagate = useNavigate();
   const [avatars, setAvatars] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(undefined);
   const toastOptions = {
     position: "bottom-right",
@@ -33,7 +35,7 @@ export default function SetAvatar() {
       data.push(buffer.toString("base64"));
     }
     setAvatars(data);
-    setisLoading(false);
+    setIsLoading(false);
   }, []);
 
   return (
@@ -42,10 +44,11 @@ export default function SetAvatar() {
         <div className="title-container">
           <h1>Pick an Avatar as your profile picture</h1>
         </div>
-        <div key={index} className="avatars">
+        <div className="avatars">
           {avatars.map((avatar, index) => {
             return (
               <div
+                key={index}
                 className={`avatar ${
                   selectedAvatar === index ? "selected" : ""
                 }`}
