@@ -9,9 +9,8 @@ import { setAvatarRoute } from "../utils/APIRoutes";
 import { Buffer } from "buffer";
 
 export default function SetAvatar() {
-  const api = "https://api.multiavatar.com/45678945";
-  // const api =
-  //   "https://api.multiavatar.com/Starcrasher.png?apikey=YWE6ILg09AMzCF";
+  // const api = `https://api.multiavatar.com/45678945`;
+  const api = `https://api.multiavatar.com/Starcrasher.png?apikey=YWE6ILg09AMzCF`;
   const naviagate = useNavigate();
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +53,7 @@ export default function SetAvatar() {
                 }`}
               >
                 <img
-                  src={`data:image/svg+xml;base64, ${avatar}`}
+                  src={`data:image/svg+xml;base64,${avatar}`}
                   alt="avatar"
                   onClick={() => setSelectedAvatar(index)}
                 />
@@ -69,4 +68,44 @@ export default function SetAvatar() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: #0e1419;
+  height: 100vh;
+  width: 100vw;
+
+  .loader {
+    max-inline-size: 100%;
+  }
+  .title-container {
+    h1 {
+      color: #00fdea;
+    }
+  }
+
+  .avatars {
+    display: flex;
+    gap: 2rem;
+
+    .avatar {
+      border: 0.4rem solid transparent;
+      padding: 0.4rem;
+      border-radius: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s ease-in-out;
+      img {
+        height: 6rem;
+      }
+    }
+
+    .selected{
+      border: 0.4rem solid #38ff42;
+    }
+  }
+`;
