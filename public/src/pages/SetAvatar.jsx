@@ -9,9 +9,9 @@ import { setAvatarRoute } from "../utils/APIRoutes";
 import { Buffer } from "buffer";
 
 export default function SetAvatar() {
-  //   const api = "https://api.multiavatar.com/45678945";
-  const api =
-    "https://api.multiavatar.com/Starcrasher.png?apikey=YWE6ILg09AMzCF";
+  const api = "https://api.multiavatar.com/45678945";
+  // const api =
+  //   "https://api.multiavatar.com/Starcrasher.png?apikey=YWE6ILg09AMzCF";
   const naviagate = useNavigate();
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
