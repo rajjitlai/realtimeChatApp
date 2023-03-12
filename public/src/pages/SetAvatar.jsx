@@ -23,7 +23,11 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
-  const setProfilePicture = async () => {};
+  const setProfilePicture = async () => {
+    if (selectedAvatar === undefined) {
+      toast.error("Please select an avatar", toastOptions);
+    }
+  };
   useEffect(async () => {
     const data = [];
     for (let i = 0; i < 4; i++) {
@@ -39,31 +43,38 @@ export default function SetAvatar() {
 
   return (
     <>
-      <Container>
-        <div className="title-container">
-          <h1>Pick an Avatar as your profile picture</h1>
-        </div>
-        <div className="avatars">
-          {avatars.map((avatar, index) => {
-            return (
-              <div
-                key={index}
-                className={`avatar ${
-                  selectedAvatar === index ? "selected" : ""
-                }`}
-              >
-                <img
-                  src={`data:image/svg+xml;base64,${avatar}`}
-                  alt="avatar"
-                  onClick={() => setSelectedAvatar(index)}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <button className="submit-btn" onClick={setProfilePicture}>Set as Profile Picture</button>
-      </Container>
-      ;
+      {isLoading ? (
+        <Container>
+          <img src={loader} alt="loader" className="loader" />
+        </Container>
+      ) : (
+        <Container>
+          <div className="title-container">
+            <h1>Pick an Avatar as your profile picture</h1>
+          </div>
+          <div className="avatars">
+            {avatars.map((avatar, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`avatar ${
+                    selectedAvatar === index ? "selected" : ""
+                  }`}
+                >
+                  <img
+                    src={`data:image/svg+xml;base64,${avatar}`}
+                    alt="avatar"
+                    onClick={() => setSelectedAvatar(index)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <button className="submit-btn" onClick={setProfilePicture}>
+            Set as Profile Picture
+          </button>
+        </Container>
+      )}
       <ToastContainer />
     </>
   );
@@ -105,8 +116,24 @@ const Container = styled.div`
       }
     }
 
-    .selected{
+    .selected {
       border: 0.4rem solid #38ff42;
+    }
+  }
+
+  .submit-btn {
+    background-color: #00fdea;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    color: #000;
+    border: none;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: #38ff42;
     }
   }
 `;
