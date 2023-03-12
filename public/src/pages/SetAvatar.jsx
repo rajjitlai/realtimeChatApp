@@ -61,6 +61,7 @@ export default function SetAvatar() {
             );
           })}
         </div>
+        <button className="submit-btn" onClick={setProfilePicture}>Set as Profile Picture</button>
       </Container>
       ;
       <ToastContainer />
