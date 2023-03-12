@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import Logo from "../assets/rj.ico"; // change the logo after the development
+import Logo from "../assets/wathiapp.ico";
 import { registerRoute } from "../utils/APIRoutes";
 
 function Register() {

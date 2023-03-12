@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import loader from "../assets/rj.ico"; // change the loader after the development
+import loader from "../assets/wathiapp-loader.gif";
 import { setAvatarRoute } from "../utils/APIRoutes";
 import { Buffer } from "buffer";
 
