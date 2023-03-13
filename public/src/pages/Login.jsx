@@ -73,7 +73,17 @@ function Login() {
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>waathiapp</h1>
+            <h1>
+              <span className="ic">
+                ic
+              </span>
+              <span className="icdot">
+                .
+              </span>
+              <span className="icnet">
+                net
+              </span>
+            </h1>
           </div>
           {/* <label htmlFor="username">Username</label> */}
           <input
@@ -173,6 +183,16 @@ const FormContainer = styled.div`
         font-weight: 700;
       }
     }
+  }
+
+  .ic{
+    color: blue;
+  }
+  .icdot{
+    color: red;
+  }
+  .icnet{
+    color: green;
   }
 `;
 

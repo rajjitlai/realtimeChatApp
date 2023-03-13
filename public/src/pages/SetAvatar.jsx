@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import loader from "../assets/wathiapp-loader.gif";
+import loader from "../assets/icnet.gif";
 import { setAvatarRoute } from "../utils/APIRoutes";
 import { Buffer } from "buffer";
 
@@ -86,12 +86,15 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  background-color: #0e1419;
+  // background-color: #0e1419;
+  background-color: #010102;
   height: 100vh;
   width: 100vw;
 
   .loader {
     max-inline-size: 100%;
+    border-radius: 50%;
+    border: 5px solid #00fdea;
   }
   .title-container {
     h1 {
